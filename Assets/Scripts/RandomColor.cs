@@ -6,16 +6,15 @@ using Random = System.Random;
 public class RandomColor 
 {
     private const int MinValue = 0;
-    private const int MaxValue = 255;
+    private const int MaxValue = 1;
     
-    public Color GetColor()
+    public Color GetColor(Random random)
     {
-        Random random = new Random();
-        int r = random.Next(MinValue, MaxValue + 1);
-        int g = random.Next(MinValue, MaxValue + 1);
-        int b = random.Next(MinValue, MaxValue + 1);
+        float r = (float)random.NextDouble();
+        float g = (float)random.NextDouble();
+        float b = (float)random.NextDouble();
 
-        Color color = new Color(r, g, b);
+        Color color = new Color(r, g, b, 1);
 
         return color;
     }

@@ -5,13 +5,10 @@ public abstract class BaseFigure : MonoBehaviour
 {
     [SerializeField] private MeshRenderer _meshRenderer;
 
-    public virtual void SetSize(int factor)
-    {
-        transform.localScale = Vector3.one * factor;
-    }
+    public virtual void SetSize(int factor){}
 
     public void SetColor(Color color)
     {
-        _meshRenderer.material.SetColor(1, color); 
+        _meshRenderer.material.color = color;
     }
 }

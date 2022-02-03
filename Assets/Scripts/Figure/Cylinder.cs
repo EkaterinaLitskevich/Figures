@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Cylinder : BaseFigure
 {
+    [SerializeField] private CapsuleCollider _collider;
     public override void SetSize(int factor)
     {
-        transform.localScale = new Vector3(1,factor, 1);
+        _collider.height = factor;
     }
 }

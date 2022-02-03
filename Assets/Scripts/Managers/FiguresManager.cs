@@ -18,7 +18,6 @@ public class FiguresManager
 
     private List<BaseFigure> _figures = new List<BaseFigure>();
     
-    
     public void Init(List<GameObject> figures, Transform parent)
     {
         FiguresFactory figuresFactory = new FiguresFactory();
@@ -55,6 +54,7 @@ public class FiguresManager
 
     private void SetColor()
     {
+        Random random = new Random();
         RandomColor color = new RandomColor();
         Color newColor = new Color();
         
@@ -62,10 +62,9 @@ public class FiguresManager
         {
             Task.Run(() =>
             {
-                newColor = color.GetColor();
+                newColor = color.GetColor(random);
             });
-            
-            Debug.Log("newColor = " + newColor);
+
             _figures[i].SetColor(newColor);
         }
     }
