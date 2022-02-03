@@ -5,8 +5,4 @@ using UnityEngine;
 
 public class Cube : BaseFigure
 {
-    private void Start()
-    {
-        GameObject.CreatePrimitive(PrimitiveType.Cube);
-    }
 }

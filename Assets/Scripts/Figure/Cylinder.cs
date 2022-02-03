@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Cylinder : BaseFigure
 {
-    public override void ChangeScale(int factor)
+    public override void SetSize(int factor)
     {
-        transform.localScale = Vector3.up * factor;
+        transform.localScale = new Vector3(1,factor, 1);
     }
 }
