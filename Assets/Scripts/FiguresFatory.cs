@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class FiguresFatory<T> where T: BaseFigure, new()
+public class FiguresFatory : MonoBehaviour
 {
-   public T Creat()
-   {
-      return new T();
+   public T Create<T>(GameObject obj, Transform parent)  where T : MonoBehaviour
+   { 
+       var figure = Instantiate(obj, parent).GetComponent<T>();
+       return figure;
    }
 }

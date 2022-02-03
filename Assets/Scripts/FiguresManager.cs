@@ -2,17 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FiguresManager 
+public class FiguresManager
 {
-    private void Init()
+    private Cube _cube;
+    private Sphere _sphere;
+    private Cylinder _cylinder;
+    
+    public void Init(List<GameObject> figures, Transform parent)
     {
-        FiguresFatory<Cube> _cubeFatory = new FiguresFatory<Cube>();
-        Cube _cube = _cubeFatory.Creat();
+        FiguresFatory figuresFatory = new FiguresFatory();
         
-        FiguresFatory<Sphere> _sphereFatory = new FiguresFatory<Sphere>();
-        Sphere _sphere = _sphereFatory.Creat();
-        
-        FiguresFatory<Cylinder> _cylinderFatory = new FiguresFatory<Cylinder>();
-        Cylinder _cylinder = _cylinderFatory.Creat();
+        for (int i = 0; i < figures.Count; i++)
+        {
+            if (figures[i].GetComponent<Cube>())
+            {
+                _cube = figuresFatory.Create<Cube>(figures[i], parent);
+            }
+            if (figures[i].GetComponent<Sphere>())
+            {
+                _sphere = figuresFatory.Create<Sphere>(figures[i], parent);
+            }
+            if (figures[i].GetComponent<Cylinder>())
+            {
+                _cylinder = figuresFatory.Create<Cylinder>(figures[i], parent);
+            }
+        }
     }
 }

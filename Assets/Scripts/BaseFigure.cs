@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class BaseFigure : MonoBehaviour
@@ -12,7 +10,7 @@ public abstract class BaseFigure : MonoBehaviour
         set => _meshRenderer.material = value;
     }
 
-    public virtual void ChangeScale(int factor)
+    public virtual void SetSize(int factor)
     {
         transform.localScale = Vector3.one * factor;
     }
