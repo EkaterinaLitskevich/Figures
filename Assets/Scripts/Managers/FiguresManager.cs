@@ -36,14 +36,14 @@ public class FiguresManager
         SetColor();
     }
 
-    private void SetSizeFigures()
+    private async void SetSizeFigures()
     {
         Random random = new Random(); 
         int randomSize = 1;
         
         for (int i = 0; i < _figures.Count; i++)
         {
-            Task.Run(() =>
+            await Task.Run(() =>
             {
                 randomSize = random.Next(MinSize, MaxSize);
             });
@@ -52,7 +52,7 @@ public class FiguresManager
         }
     }
 
-    private void SetColor()
+    private async void SetColor()
     {
         Random random = new Random();
         RandomColor color = new RandomColor();
@@ -60,12 +60,29 @@ public class FiguresManager
         
         for (int i = 0; i < _figures.Count; i++)
         {
-            Task.Run(() =>
+            await Task.Run(() =>
             {
                 newColor = color.GetColor(random);
             });
 
             _figures[i].SetColor(newColor);
         }
+    }
+
+    private async void Check()
+    {
+        await CheckTwo();
+    }
+
+    private async Task<int> CheckTwo()
+    {
+        int value = 0;
+        
+        await Task.Run(() =>
+        {
+            value++;
+        });
+
+        return value;
     }
 }
